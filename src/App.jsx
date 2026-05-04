@@ -1,9 +1,10 @@
-import { useState } from "react";
-
+import General_information from "./components/general_information.jsx";
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <></>;
+  return (
+    <>
+      <General_information />
+    </>
+  );
 }
 
 export default App;
