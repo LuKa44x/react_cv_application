@@ -1,17 +1,20 @@
-# React + Vite
+# React + Vite + Bootstrap
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Questa applicazione React è stata creata con Vite e include Bootstrap per lo styling.
 
-Currently, two official plugins are available:
+Il progetto è configurato per fornire un setup minimale con React, Vite, HMR e regole ESLint di base.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Bootstrap è già incluso per facilitare la creazione di layout e componenti responsivi.
+
+Attualmente sono disponibili due plugin ufficiali per React in Vite:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) usa [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) usa [SWC](https://swc.rs/)
 
 ## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Il React Compiler non è abilitato in questo template a causa dell'impatto sulle prestazioni in sviluppo e build. Per aggiungerlo, consulta [questa documentazione](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Configurazione ESLint
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# react_cv_application" 
+Per applicazioni di produzione, si consiglia di usare TypeScript con regole di linting type-aware. Consulta il [template TS](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) per informazioni su come integrare TypeScript e [`typescript-eslint`](https://typescript-eslint.io) nel progetto.
