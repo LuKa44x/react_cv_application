@@ -6,7 +6,7 @@ function General_information() {
     firstName: "",
     lastName: "",
     email: "",
-    phone: "+39 ",
+    phone: "",
   });
 
   return (
@@ -19,6 +19,7 @@ function General_information() {
           aria-label="First name"
           className="form-control"
           name="firstName"
+          placeholder="First Name"
           onChange={(e) =>
             setPersonalInfo({ ...personalInfo, firstName: e.target.value })
           }
@@ -28,6 +29,7 @@ function General_information() {
           aria-label="Last name"
           className="form-control"
           name="lastName"
+          placeholder="Last Name"
           onChange={(e) =>
             setPersonalInfo({ ...personalInfo, lastName: e.target.value })
           }
@@ -41,6 +43,7 @@ function General_information() {
           aria-label="Email"
           className="form-control"
           name="email"
+          placeholder="email@example.com"
           onChange={(e) =>
             setPersonalInfo({ ...personalInfo, email: e.target.value })
           }
@@ -52,8 +55,16 @@ function General_information() {
           className="form-control"
           name="phone"
           value={personalInfo.phone}
+          onClick={(e) =>
+            setPersonalInfo({
+              ...personalInfo,
+              phone: "+39 ",
+            })
+          }
           aria-label="Phone"
           aria-describedby="button-addon2"
+          maxLength="13"
+          placeholder="+39 1234567890"
           onChange={(e) =>
             setPersonalInfo({ ...personalInfo, phone: e.target.value })
           }
