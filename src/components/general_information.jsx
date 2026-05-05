@@ -11,6 +11,7 @@ function General_information() {
 
   return (
     <>
+      <h3>General Information</h3>
       {/* input group for first and last name  */}
       <div className="input-group">
         <span className="input-group-text">First and last name</span>
@@ -36,7 +37,7 @@ function General_information() {
         />
       </div>
       {/* input group for email and phone number */}
-      <div className="input-group">
+      <div className="input-group mt-2">
         <span className="input-group-text">Email</span>
         <input
           type="email"
@@ -74,7 +75,7 @@ function General_information() {
           type="submit"
           id="button-addon2"
         >
-          Button
+          Edit
         </button>
       </div>
       {/* to check the state */}

@@ -13,6 +13,7 @@ function Educational_experience() {
   let currentDate = new Date().toJSON().slice(0, 10);
   return (
     <>
+      <h3>Educational Experience</h3>
       {/* input group for degree and school name  */}
       <div className="input-group">
         <span className="input-group-text">Degree</span>
@@ -37,7 +38,7 @@ function Educational_experience() {
         />
       </div>
       {/* input group for date */}
-      <div className="input-group">
+      <div className="input-group mt-2">
         <span className="input-group-text">Start of study</span>
         <input
           type="date"
@@ -64,6 +65,13 @@ function Educational_experience() {
             setEducationInfo({ ...educationInfo, endDate: e.target.value })
           }
         />
+        <button
+          className="btn btn-outline-secondary"
+          type="submit"
+          id="button-addon2"
+        >
+          Edit
+        </button>
       </div>
 
       {/* to check the state */}

@@ -12,6 +12,7 @@ function Practical_experience() {
   let currentDate = new Date().toJSON().slice(0, 10);
   return (
     <>
+      <h3>Practical Experience</h3>
       <div className="input-group">
         <span className="input-group-text">Company Name</span>
         <input
@@ -26,10 +27,11 @@ function Practical_experience() {
         />
       </div>
       {/* input group for Position Title and Responsability  */}
-      <div className="input-group">
-        <span className="input-group-text">
-          Position Title and Responsability
-        </span>
+
+      <span className="input-group-text justify-content-center">
+        Position Title and Responsability
+      </span>
+      <div className="input-group align-items-start">
         <input
           type="text"
           aria-label="Position Title"
@@ -43,8 +45,10 @@ function Practical_experience() {
             })
           }
         />
-        <input
-          type="text"
+
+        <textarea
+          style={{ resize: "none" }}
+          rows={4}
           aria-label="Main Responsability"
           className="form-control"
           name="mainResponsability"
@@ -58,7 +62,7 @@ function Practical_experience() {
         />
       </div>
       {/* input group for dates */}
-      <div className="input-group">
+      <div className="input-group ">
         <span className="input-group-text">Start of work</span>
         <input
           type="date"
@@ -72,6 +76,7 @@ function Practical_experience() {
             setPracticalInfo({ ...practicalInfo, startDate: e.target.value })
           }
         />
+
         <span className="input-group-text">End of work</span>
         <input
           type="date"
@@ -91,9 +96,10 @@ function Practical_experience() {
           type="submit"
           id="button-addon2"
         >
-          Button
+          Edit
         </button>
       </div>
+
       {/* to check the state */}
       <p>
         {practicalInfo.companyName} {practicalInfo.positionTitle}{" "}
