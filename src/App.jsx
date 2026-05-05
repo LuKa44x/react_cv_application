@@ -125,7 +125,6 @@ function App() {
             }
           />
           <Practical_experience
-            className="mt-3"
             onChange={(practical_exp) =>
               setData((prev) => ({ ...prev, practical_exp }))
             }
