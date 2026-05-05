@@ -1,13 +1,18 @@
 import { useState } from "react";
 
-function Educational_experience() {
+function Educational_experience({ onChange }) {
   //state obj for education experience
-  const [educationInfo, setEducationInfo] = useState({
-    degree: "",
-    schoolName: "",
-    startDate: "",
-    endDate: "",
-  });
+  const [educationInfo, setEducationInfo] = useState({});
+
+  const handleChange = (e) => {
+    const updatedData = {
+      ...educationInfo,
+      [e.target.name]: e.target.value,
+    };
+
+    setEducationInfo(updatedData);
+    onChange(updatedData);
+  };
 
   //to get the current date for the max attribute of the date input
   let currentDate = new Date().toJSON().slice(0, 10);
@@ -22,9 +27,7 @@ function Educational_experience() {
           aria-label="Degree"
           className="form-control"
           name="degree"
-          onChange={(e) =>
-            setEducationInfo({ ...educationInfo, degree: e.target.value })
-          }
+          onChange={handleChange}
         />
         <span className="input-group-text">School Name</span>
         <input
@@ -32,9 +35,7 @@ function Educational_experience() {
           aria-label="School name"
           className="form-control"
           name="schoolName"
-          onChange={(e) =>
-            setEducationInfo({ ...educationInfo, schoolName: e.target.value })
-          }
+          onChange={handleChange}
         />
       </div>
       {/* input group for date */}
@@ -48,9 +49,7 @@ function Educational_experience() {
           max={currentDate}
           // to prevent the user from typing in the date input and avoid the max attribute
           onKeyDown={(e) => e.preventDefault()}
-          onChange={(e) =>
-            setEducationInfo({ ...educationInfo, startDate: e.target.value })
-          }
+          onChange={handleChange}
         />
         <span className="input-group-text">End of study</span>
         <input
@@ -61,9 +60,7 @@ function Educational_experience() {
           max={currentDate}
           // to prevent the user from typing in the date input and avoid the max attribute
           onKeyDown={(e) => e.preventDefault()}
-          onChange={(e) =>
-            setEducationInfo({ ...educationInfo, endDate: e.target.value })
-          }
+          onChange={handleChange}
         />
         <button
           className="btn btn-outline-secondary"

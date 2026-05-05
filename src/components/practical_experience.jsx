@@ -1,14 +1,19 @@
 import { useState } from "react";
 
-function Practical_experience() {
+function Practical_experience({ onChange }) {
   //state obj for practical info
-  const [practicalInfo, setPracticalInfo] = useState({
-    companyName: "",
-    positionTitle: "",
-    mainResponsability: "",
-    startWork: "",
-    endWork: "",
-  });
+  const [practicalInfo, setPracticalInfo] = useState({});
+
+  const handleChange = (e) => {
+    const updatedData = {
+      ...practicalInfo,
+      [e.target.name]: e.target.value,
+    };
+
+    setPracticalInfo(updatedData);
+    onChange(updatedData);
+  };
+
   let currentDate = new Date().toJSON().slice(0, 10);
   return (
     <>
@@ -21,9 +26,7 @@ function Practical_experience() {
           className="form-control"
           name="companyName"
           placeholder="Company Name"
-          onChange={(e) =>
-            setPracticalInfo({ ...practicalInfo, companyName: e.target.value })
-          }
+          onChange={handleChange}
         />
       </div>
       {/* input group for Position Title and Responsability  */}
@@ -38,12 +41,7 @@ function Practical_experience() {
           className="form-control"
           name="positionTitle"
           placeholder="Position Title"
-          onChange={(e) =>
-            setPracticalInfo({
-              ...practicalInfo,
-              positionTitle: e.target.value,
-            })
-          }
+          onChange={handleChange}
         />
 
         <textarea
@@ -53,12 +51,7 @@ function Practical_experience() {
           className="form-control"
           name="mainResponsability"
           placeholder="Main Responsability"
-          onChange={(e) =>
-            setPracticalInfo({
-              ...practicalInfo,
-              mainResponsability: e.target.value,
-            })
-          }
+          onChange={handleChange}
         />
       </div>
       {/* input group for dates */}
@@ -72,9 +65,7 @@ function Practical_experience() {
           max={currentDate}
           // to prevent the user from typing in the date input and avoid the max attribute
           onKeyDown={(e) => e.preventDefault()}
-          onChange={(e) =>
-            setPracticalInfo({ ...practicalInfo, startDate: e.target.value })
-          }
+          onChange={handleChange}
         />
 
         <span className="input-group-text">End of work</span>
@@ -86,9 +77,7 @@ function Practical_experience() {
           max={currentDate}
           // to prevent the user from typing in the date input and avoid the max attribute
           onKeyDown={(e) => e.preventDefault()}
-          onChange={(e) =>
-            setPracticalInfo({ ...practicalInfo, endDate: e.target.value })
-          }
+          onChange={handleChange}
         />
 
         <button

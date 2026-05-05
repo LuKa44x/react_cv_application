@@ -1,13 +1,18 @@
 import { useState } from "react";
 
-function General_information() {
+function General_information({ onChange }) {
   //state obj for personal info
-  const [personalInfo, setPersonalInfo] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-  });
+  const [personalInfo, setPersonalInfo] = useState({});
+
+  const handleChange = (e) => {
+    const updatedData = {
+      ...personalInfo,
+      [e.target.name]: e.target.value,
+    };
+
+    setPersonalInfo(updatedData);
+    onChange(updatedData);
+  };
 
   return (
     <>
@@ -21,9 +26,7 @@ function General_information() {
           className="form-control"
           name="firstName"
           placeholder="First Name"
-          onChange={(e) =>
-            setPersonalInfo({ ...personalInfo, firstName: e.target.value })
-          }
+          onChange={handleChange}
         />
         <input
           type="text"
@@ -31,9 +34,7 @@ function General_information() {
           className="form-control"
           name="lastName"
           placeholder="Last Name"
-          onChange={(e) =>
-            setPersonalInfo({ ...personalInfo, lastName: e.target.value })
-          }
+          onChange={handleChange}
         />
       </div>
       {/* input group for email and phone number */}
@@ -45,9 +46,7 @@ function General_information() {
           className="form-control"
           name="email"
           placeholder="email@example.com"
-          onChange={(e) =>
-            setPersonalInfo({ ...personalInfo, email: e.target.value })
-          }
+          onChange={handleChange}
         />
 
         <span className="input-group-text">Phone</span>
@@ -66,9 +65,7 @@ function General_information() {
           aria-describedby="button-addon2"
           maxLength="13"
           placeholder="+39 1234567890"
-          onChange={(e) =>
-            setPersonalInfo({ ...personalInfo, phone: e.target.value })
-          }
+          onChange={handleChange}
         />
         <button
           className="btn btn-outline-secondary"
