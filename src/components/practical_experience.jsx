@@ -1,18 +1,29 @@
 import { useState } from "react";
 
-function Practical_experience({ onChange }) {
-  //state obj for practical info
-  const [practicalInfo, setPracticalInfo] = useState({});
+function Practical_experience({ onChange, data }) {
+  const [stillWorking, setStillWorking] = useState(false);
 
   const handleChange = (e) => {
     const updatedData = {
-      ...practicalInfo,
+      ...data,
       [e.target.name]: e.target.value,
     };
 
-    setPracticalInfo(updatedData);
     onChange(updatedData);
   };
+
+  function toggleEndDate(e) {
+    const checked = e.target.checked;
+
+    setStillWorking(checked);
+
+    if (checked) {
+      onChange({
+        ...data,
+        endDate: "",
+      });
+    }
+  }
 
   let currentDate = new Date().toJSON().slice(0, 10);
   return (
@@ -23,6 +34,7 @@ function Practical_experience({ onChange }) {
           <span className="input-group-text">Company Name</span>
           <input
             type="text"
+            value={data?.companyName || ""}
             aria-label="Company Name"
             className="form-control"
             name="companyName"
@@ -38,6 +50,7 @@ function Practical_experience({ onChange }) {
         <div className="input-group align-items-start">
           <input
             type="text"
+            value={data?.positionTitle || ""}
             aria-label="Position Title"
             className="form-control"
             name="positionTitle"
@@ -48,6 +61,7 @@ function Practical_experience({ onChange }) {
           <textarea
             style={{ resize: "none" }}
             rows={4}
+            value={data?.mainResponsability || ""}
             aria-label="Main Responsability"
             className="form-control"
             name="mainResponsability"
@@ -60,6 +74,7 @@ function Practical_experience({ onChange }) {
           <span className="input-group-text">Start of work</span>
           <input
             type="date"
+            value={data?.startDate || ""}
             className="form-control"
             aria-label="startDate"
             name="startDate"
@@ -72,6 +87,7 @@ function Practical_experience({ onChange }) {
           <span className="input-group-text">End of work</span>
           <input
             type="date"
+            value={data?.endDate || ""}
             className="form-control"
             aria-label="endDate"
             name="endDate"
@@ -79,7 +95,16 @@ function Practical_experience({ onChange }) {
             // to prevent the user from typing in the date input and avoid the max attribute
             onKeyDown={(e) => e.preventDefault()}
             onChange={handleChange}
+            disabled={stillWorking}
           />
+          <input
+            type="checkbox"
+            name="stillWorking"
+            id="stillWorking"
+            checked={stillWorking}
+            onChange={toggleEndDate}
+          />
+          <label htmlFor="stillWorking">Still working</label>
         </div>
       </div>
     </>

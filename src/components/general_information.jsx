@@ -1,16 +1,12 @@
 import { useState } from "react";
 
-function General_information({ onChange }) {
-  //state obj for personal info
-  const [personalInfo, setPersonalInfo] = useState({});
-
+function General_information({ onChange, data }) {
   const handleChange = (e) => {
     const updatedData = {
-      ...personalInfo,
+      ...data,
       [e.target.name]: e.target.value,
     };
 
-    setPersonalInfo(updatedData);
     onChange(updatedData);
   };
 
@@ -23,19 +19,23 @@ function General_information({ onChange }) {
           <span className="input-group-text">First and last name</span>
           <input
             type="text"
+            value={data?.firstName || ""}
             aria-label="First name"
             className="form-control"
             name="firstName"
             placeholder="First Name"
             onChange={handleChange}
+            required
           />
           <input
             type="text"
+            value={data?.lastName || ""}
             aria-label="Last name"
             className="form-control"
             name="lastName"
             placeholder="Last Name"
             onChange={handleChange}
+            required
           />
         </div>
         {/* input group for email and phone number */}
@@ -43,11 +43,13 @@ function General_information({ onChange }) {
           <span className="input-group-text">Email</span>
           <input
             type="email"
+            value={data?.email || ""}
             aria-label="Email"
             className="form-control"
             name="email"
             placeholder="email@example.com"
             onChange={handleChange}
+            required
           />
 
           <span className="input-group-text">Phone</span>
@@ -55,18 +57,13 @@ function General_information({ onChange }) {
             type="tel"
             className="form-control"
             name="phone"
-            value={personalInfo.phone}
-            onClick={(e) =>
-              setPersonalInfo({
-                ...personalInfo,
-                phone: "+39 ",
-              })
-            }
+            value={data?.phone || "+39 "}
             aria-label="Phone"
             aria-describedby="button-addon2"
             maxLength="13"
             placeholder="+39 1234567890"
             onChange={handleChange}
+            required
           />
         </div>
       </div>
