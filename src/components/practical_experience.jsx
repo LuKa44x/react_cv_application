@@ -20,7 +20,7 @@ function Practical_experience({ onChange, data }) {
     if (checked) {
       onChange({
         ...data,
-        endDate: "",
+        endDate: "Still working",
       });
     }
   }

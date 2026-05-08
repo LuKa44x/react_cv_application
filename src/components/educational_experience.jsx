@@ -20,7 +20,7 @@ function Educational_experience({ onChange, data }) {
     if (checked) {
       onChange({
         ...data,
-        endDate: "",
+        endDate: "Still studying",
       });
     }
   }
